@@ -400,7 +400,7 @@ if six.PY2:
                 handlers.append(urllib2.HTTPCookieProcessor(cj))
             opener = urllib2.build_opener(*handlers)
             urllib2.install_opener(opener)
-            request = urllib2.Request(url)
+            request = urllib2.Request(url.encode('ascii'))
             request.add_header('User-agent', self._useragent)
             request.add_header('Content-type', content_type)
             request.add_header('Content-length', len(body))
